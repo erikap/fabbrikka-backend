@@ -13,7 +13,7 @@ services:
     volumes:
       - ./config/dispatcher:/config
   db:
-    image: tenforce/virtuoso:1.0.0-virtuoso7.2.4
+    image: tenforce/virtuoso:1.0.0-virtuoso7.2.0
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
@@ -30,7 +30,7 @@ services:
   file-service:
     image: semtech/mu-file-service
     links:
-      - db:database 
+      - db:database
     volumes:
       - ./data/files:/data
     ports:
