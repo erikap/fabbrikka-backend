@@ -50,6 +50,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/product-audiences/"
   end
 
+  match "/api/shopping-carts/*path" do
+    Proxy.forward conn, path, "http://resource/shopping-carts/"
+  end
+
+  match "/api/shopping-cart-items/*path" do
+    Proxy.forward conn, path, "http://resource/shopping-cart-items/"
+  end
+
   match "/app/*path" do
       Proxy.forward conn, path, "http://ember/app/"
   end

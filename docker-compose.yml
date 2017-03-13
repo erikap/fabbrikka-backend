@@ -27,7 +27,7 @@ services:
     volumes:
       - ./data/db:/data
   resource:
-    image: semtech/mu-cl-resources:latest
+    image: semtech/mu-cl-resources:1.12.1
     links:
       - db:database
     volumes:
@@ -35,7 +35,7 @@ services:
   file-service:
     image: semtech/mu-file-service
     links:
-      - db:database 
+      - db:database
     volumes:
       - ./data/files:/data
     ports:
