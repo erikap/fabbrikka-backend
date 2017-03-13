@@ -18,38 +18,41 @@ defmodule Dispatcher do
   # docker-compose stop; docker-compose rm; docker-compose up
   # after altering this file.
   #
-  match "/products/*path" do
+  match "/api/products/*path" do
     Proxy.forward conn, path, "http://resource/products/"
   end
 
-  match "/product-names/*path" do
+  match "/api/product-names/*path" do
     Proxy.forward conn, path, "http://resource/product-names/"
   end
 
-  match "/product-descriptions/*path" do
+  match "/api/product-descriptions/*path" do
     Proxy.forward conn, path, "http://resource/product-descriptions/"
   end
 
-  match "/product-sizes/*path" do
+  match "/api/product-sizes/*path" do
     Proxy.forward conn, path, "http://resource/product-sizes/"
   end
 
-  match "/product-prices/*path" do
+  match "/api/product-prices/*path" do
     Proxy.forward conn, path, "http://resource/product-prices/"
   end
 
-  match "/product-images/*path" do
+  match "/api/product-images/*path" do
     Proxy.forward conn, path, "http://resource/product-images/"
   end
 
-  match "/files/*path" do
+  match "/api/files/*path" do
     Proxy.forward conn, path, "http://file-service/files/"
   end
 
-  match "/product-audiences/*path" do
+  match "/api/product-audiences/*path" do
     Proxy.forward conn, path, "http://resource/product-audiences/"
   end
 
+  match "/app/*path" do
+      Proxy.forward conn, path, "http://ember/app/"
+  end
 
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )

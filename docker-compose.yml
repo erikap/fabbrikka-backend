@@ -1,15 +1,20 @@
 version: "2"
 services:
+  ember:
+    image: nginx
+    volumes:
+      - /home/cecemel/git/fabbrikka-frontend/dist:/usr/share/nginx/html:ro     
   identifier:
     image: semtech/mu-identifier:1.0.0
     links:
       - dispatcher:dispatcher
     ports:
-      - "80:80"
+      - "6970:80"
   dispatcher:
     image: semtech/mu-dispatcher:1.0.1
     links:
       - resource:resource
+      - ember:ember
     volumes:
       - ./config/dispatcher:/config
   db:
@@ -34,6 +39,6 @@ services:
     volumes:
       - ./data/files:/data
     ports:
-      - "6969:80"
+      - "6971:80"
     environment:
       - SECRET_KEY_BASE=test
