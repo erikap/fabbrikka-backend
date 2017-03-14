@@ -1,9 +1,9 @@
 version: "2"
 services:
   ember:
-    image: nginx
+    image: fastboot
     volumes:
-      - /home/cecemel/git/fabbrikka-frontend/dist:/usr/share/nginx/html:ro     
+      - /home/cecemel/git/fabbrikka-frontend/dist:/dist
   identifier:
     image: semtech/mu-identifier:1.0.0
     links:

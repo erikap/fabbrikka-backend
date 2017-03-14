@@ -1,0 +1,227 @@
+Attaching to fabbrikkabackend_ember_1, fabbrikkabackend_db_1, fabbrikkabackend_resource_1, fabbrikkabackend_file-service_1, fabbrikkabackend_dispatcher_1, fabbrikkabackend_identifier_1
+[36member_1         |[0m npm info it worked if it ends with ok
+[36member_1         |[0m npm info using npm@3.10.10
+[36member_1         |[0m npm info using node@v6.9.5
+[36member_1         |[0m npm info lifecycle undefined~preinstall: undefined
+[36member_1         |[0m npm info linkStuff !invalid#1
+[36member_1         |[0m npm info lifecycle undefined~install: undefined
+[36member_1         |[0m npm info lifecycle undefined~postinstall: undefined
+[36member_1         |[0m npm info lifecycle undefined~prepublish: undefined
+[36member_1         |[0m npm WARN dist No description
+[36member_1         |[0m npm WARN dist No repository field.
+[36member_1         |[0m npm WARN dist No license field.
+[32mresource_1      |[0m WARNING:
+[32mresource_1      |[0m Couldn't re-execute SBCL with proper personality flags (/proc isn't mounted? setuid?)
+[32mresource_1      |[0m Trying to continue anyway.
+[36member_1         |[0m npm info ok 
+[36member_1         |[0m [2017-03-14T11:13:09.317Z][m16] using distPath; path=/dist
+[32mresource_1      |[0m This is SBCL 1.2.9, an implementation of ANSI Common Lisp.
+[32mresource_1      |[0m More information about SBCL is available at <http://www.sbcl.org/>.
+[32mresource_1      |[0m 
+[32mresource_1      |[0m SBCL is free software, provided as is, with absolutely no warranty.
+[32mresource_1      |[0m It is mostly in the public domain; some portions are provided under
+[32mresource_1      |[0m BSD-style licenses.  See the CREDITS and COPYING files in the
+[32mresource_1      |[0m distribution for more information.
+[36member_1         |[0m [2017-03-14T11:13:09.375Z][m16] forked worker 22
+[36member_1         |[0m [2017-03-14T11:13:09.386Z][m16] worker online
+[36member_1         |[0m [2017-03-14T11:13:09.418Z][m16] forked worker 28
+[36member_1         |[0m [2017-03-14T11:13:09.419Z][m16] worker online
+[35mfile-service_1  |[0m *** Running /etc/my_init.d/00_regen_ssh_host_keys.sh...
+[35mfile-service_1  |[0m *** Running /etc/my_init.d/30_presetup_nginx.sh...
+[35mfile-service_1  |[0m *** Running /etc/my_init.d/file-service-startup.sh...
+[35mfile-service_1  |[0m sed: can't read /etc/nginx/conf.d/webapp.conf: No such file or directory
+[35mfile-service_1  |[0m *** Running /etc/my_init.d/startup.sh...
+[32mresource_1      |[0m  >> docker setting up environment ... 
+[32mresource_1      |[0m  >> docker finished setting up environment
+[32mresource_1      |[0m  >> docker loading base systems ... 
+[32mresource_1      |[0m To load "split-sequence":
+[32mresource_1      |[0m   Load 1 ASDF system:
+[32mresource_1      |[0m     split-sequence
+[32mresource_1      |[0m ; Loading "split-sequence"
+[32mresource_1      |[0m 
+[32mresource_1      |[0m  >> docker finished loading base systems 
+[32mresource_1      |[0m  >> docker loading boot ... 
+[32mresource_1      |[0m To load "mu-cl-resources":
+[32mresource_1      |[0m   Load 1 ASDF system:
+[32mresource_1      |[0m     mu-cl-resources
+[32mresource_1      |[0m ; Loading "mu-cl-resources"
+[33mdb_1            |[0m Connected to OpenLink Virtuoso
+[33mdb_1            |[0m Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+[33mdb_1            |[0m OpenLink Interactive SQL (Virtuoso), version 0.9849b.
+[33mdb_1            |[0m Type HELP; for help and EXIT; to exit.
+[33mdb_1            |[0m SQL> dump_nquads(0) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(1) dump_nquads(2) dump_nquads(2) dump_nquads(3) dump_nquads(3) dump_nquads(2) dump_nquads(2) dump_nquads(2) dump_nquads(2) dump_nquads(3) dump_nquads(3) dump_nquads(3) dump_nquads(3) dump_nquads(4) dump_nquads(4) dump_nquads(4) dump_nquads(3) dump_nquads(3) dump_nquads(3) dump_nquads(3) dump_nquads(2) dump_nquads(2) dump_nquads(1) dump_nquads(1) dump_nquads(2) dump_nquads(2) dump_nquads(2) dump_nquads(2) dump_nquads(3) dump_nquads(3) dump_nquads(3) dump_nquads(2) dump_nquads(2) dump_nquads(2) dump_nquads(1) 
+[33mdb_1            |[0m Done. -- 8 msec.
+[33mdb_1            |[0m SQL> SQL> Connected to OpenLink Virtuoso
+[33mdb_1            |[0m Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+[33mdb_1            |[0m OpenLink Interactive SQL (Virtuoso), version 0.9849b.
+[33mdb_1            |[0m Type HELP; for help and EXIT; to exit.
+[33mdb_1            |[0m SQL> 
+[33mdb_1            |[0m *** Error 42000: [Virtuoso Driver][Virtuoso Server]U0013: The object "SPARQL" already have role "SPARQL_UPDATE" assigned
+[33mdb_1            |[0m at line 1 of Top-Level:
+[33mdb_1            |[0m GRANT SPARQL_UPDATE to "SPARQL"
+[33mdb_1            |[0m SQL> starting data loading
+[33mdb_1            |[0m ld_dir('toLoad', '*', 'http://mu.semte.ch/application');
+[33mdb_1            |[0m rdf_loader_run();
+[33mdb_1            |[0m exec('checkpoint');
+[33mdb_1            |[0m WAIT_FOR_CHILDREN; 
+[35mfile-service_1  |[0m Using rake 10.4.2
+[35mfile-service_1  |[0m Using i18n 0.7.0
+[35mfile-service_1  |[0m Using json 1.8.2
+[35mfile-service_1  |[0m Using minitest 5.5.1
+[35mfile-service_1  |[0m Using thread_safe 0.3.4
+[35mfile-service_1  |[0m Using tzinfo 1.2.2
+[35mfile-service_1  |[0m Using activesupport 4.2.0
+[35mfile-service_1  |[0m Using builder 3.2.2
+[35mfile-service_1  |[0m Using erubis 2.7.0
+[35mfile-service_1  |[0m Using mini_portile 0.6.2
+[35mfile-service_1  |[0m Using nokogiri 1.6.5
+[35mfile-service_1  |[0m Using rails-deprecated_sanitizer 1.0.3
+[35mfile-service_1  |[0m Using rails-dom-testing 1.0.5
+[35mfile-service_1  |[0m Using loofah 2.0.1
+[35mfile-service_1  |[0m Using rails-html-sanitizer 1.0.1
+[35mfile-service_1  |[0m Using actionview 4.2.0
+[35mfile-service_1  |[0m Using rack 1.6.0
+[35mfile-service_1  |[0m Using rack-test 0.6.3
+[35mfile-service_1  |[0m Using actionpack 4.2.0
+[35mfile-service_1  |[0m Using globalid 0.3.0
+[35mfile-service_1  |[0m Using activejob 4.2.0
+[35mfile-service_1  |[0m Using mime-types 2.4.3
+[35mfile-service_1  |[0m Using mail 2.6.3
+[35mfile-service_1  |[0m Using actionmailer 4.2.0
+[35mfile-service_1  |[0m Using activemodel 4.2.0
+[35mfile-service_1  |[0m Using arel 6.0.0
+[35mfile-service_1  |[0m Using activerecord 4.2.0
+[35mfile-service_1  |[0m Using coffee-script-source 1.8.0
+[35mfile-service_1  |[0m Using execjs 2.2.2
+[35mfile-service_1  |[0m Using coffee-script 2.3.0
+[35mfile-service_1  |[0m Using thor 0.19.1
+[35mfile-service_1  |[0m Using railties 4.2.0
+[35mfile-service_1  |[0m Using coffee-rails 4.0.1
+[35mfile-service_1  |[0m Using hike 1.2.3
+[35mfile-service_1  |[0m Using multi_json 1.10.1
+[35mfile-service_1  |[0m Using jbuilder 2.2.6
+[35mfile-service_1  |[0m Using jquery-rails 4.0.3
+[35mfile-service_1  |[0m Using link_header 0.0.8
+[35mfile-service_1  |[0m Using net-http-persistent 2.9.4
+[35mfile-service_1  |[0m Using bundler 1.7.12
+[35mfile-service_1  |[0m Using tilt 1.4.1
+[35mfile-service_1  |[0m Using sprockets 2.12.3
+[35mfile-service_1  |[0m Using sprockets-rails 2.2.2
+[35mfile-service_1  |[0m Using rails 4.2.0
+[35mfile-service_1  |[0m Using rdf 1.1.7
+[35mfile-service_1  |[0m Using rdoc 4.2.0
+[35mfile-service_1  |[0m Using sass 3.2.19
+[35mfile-service_1  |[0m Using sass-rails 4.0.5
+[35mfile-service_1  |[0m Using sdoc 0.4.1
+[35mfile-service_1  |[0m Using sparql-client 1.1.3.1
+[35mfile-service_1  |[0m Using sqlite3 1.3.10
+[35mfile-service_1  |[0m Using turbolinks 2.5.3
+[35mfile-service_1  |[0m Using uglifier 2.7.0
+[35mfile-service_1  |[0m Your bundle is complete!
+[35mfile-service_1  |[0m Gems in the groups development and test were not installed.
+[35mfile-service_1  |[0m It was installed into ./vendor/bundle
+[36member_1         |[0m [2017-03-14T11:13:16.657Z][w22] starting HTTP server
+[36member_1         |[0m [2017-03-14T11:13:16.962Z][w22] HTTP server started; url=http://:::80
+[36member_1         |[0m [2017-03-14T11:13:17.070Z][w28] starting HTTP server
+[36member_1         |[0m [2017-03-14T11:13:17.221Z][w28] HTTP server started; url=http://:::80
+[32mresource_1      |[0m .................
+[32mresource_1      |[0m running inside a docker
+[35mfile-service_1  |[0m DEPRECATION WARNING: The configuration option `config.serve_static_assets` has been renamed to `config.serve_static_files` to clarify its role (it merely enables serving everything in the `public` folder and is unrelated to the asset pipeline). The `serve_static_assets` alias will be removed in Rails 5.0. Please migrate your configuration files accordingly. (called from block in <top (required)> at /home/app/webapp/config/environments/production.rb:23)
+[33mdb_1            |[0m Connected to OpenLink Virtuoso
+[33mdb_1            |[0m Driver: 07.20.3217 OpenLink Virtuoso ODBC Driver
+[33mdb_1            |[0m OpenLink Interactive SQL (Virtuoso), version 0.9849b.
+[33mdb_1            |[0m Type HELP; for help and EXIT; to exit.
+[33mdb_1            |[0m SQL> 
+[33mdb_1            |[0m *** Error 39000: [Virtuoso Driver][Virtuoso Server]FA020: Unable to list files in 'toLoad': 
+[33mdb_1            |[0m at line 1 of Top-Level:
+[33mdb_1            |[0m ld_dir('toLoad', '*', 'http://mu.semte.ch/application')
+[33mdb_1            |[0m SQL> 
+[33mdb_1            |[0m Done. -- 4 msec.
+[33mdb_1            |[0m SQL> 
+[33mdb_1            |[0m Done. -- 176 msec.
+[33mdb_1            |[0m SQL> SQL> 
+[33mdb_1            |[0m 		Tue Mar 14 2017
+[33mdb_1            |[0m 11:13:22 { Loading plugin 1: Type `plain', file `wikiv' in `/usr/local/virtuoso-opensource/lib/virtuoso/hosting'
+[33mdb_1            |[0m 11:13:22   FAILED  plugin 1: Unable to locate file }
+[33mdb_1            |[0m 11:13:22 { Loading plugin 2: Type `plain', file `mediawiki' in `/usr/local/virtuoso-opensource/lib/virtuoso/hosting'
+[33mdb_1            |[0m 11:13:22   FAILED  plugin 2: Unable to locate file }
+[33mdb_1            |[0m 11:13:22 { Loading plugin 3: Type `plain', file `creolewiki' in `/usr/local/virtuoso-opensource/lib/virtuoso/hosting'
+[33mdb_1            |[0m 11:13:22   FAILED  plugin 3: Unable to locate file }
+[33mdb_1            |[0m 11:13:22 OpenLink Virtuoso Universal Server
+[33mdb_1            |[0m 11:13:22 Version 07.20.3217-pthreads for Linux as of Jun  8 2016
+[33mdb_1            |[0m 11:13:22 uses parts of OpenSSL, PCRE, Html Tidy
+[33mdb_1            |[0m 11:13:22 Database version 3126
+[33mdb_1            |[0m 11:13:22 SQL Optimizer enabled (max 1000 layouts)
+[33mdb_1            |[0m 11:13:23 Compiler unit is timed at 0.000602 msec
+[32mresource_1      |[0m .................................
+[33mdb_1            |[0m 11:13:26 Roll forward started
+[33mdb_1            |[0m 11:13:26     3 transactions, 185 bytes replayed (100 %)
+[33mdb_1            |[0m 11:13:26 Roll forward complete
+[33mdb_1            |[0m 11:13:27 Checkpoint started
+[33mdb_1            |[0m 11:13:27 Checkpoint finished, log reused
+[31mdispatcher_1    |[0m [33mA new Hex version is available (v0.15.0), please update with `mix local.hex`[0m
+[33mdb_1            |[0m 11:13:28 HTTP/WebDAV server online at 8890
+[33mdb_1            |[0m 11:13:28 Server online at 1111 (pid 62)
+[34midentifier_1    |[0m [33mA new Hex version is available (v0.15.0), please update with `mix local.hex`[0m
+[31mdispatcher_1    |[0m Running dependency resolution
+[32mresource_1      |[0m ..........
+[34midentifier_1    |[0m Running dependency resolution
+[32mresource_1      |[0m  >> docker finished loading boot 
+[32mresource_1      |[0m  >> docker loading eval command ... 
+[32mresource_1      |[0m  >> finished running eval command ... 
+[32mresource_1      |[0m  >> docker starting swank ... 
+[32mresource_1      |[0m To load "swank":
+[32mresource_1      |[0m   Load 1 ASDF system:
+[32mresource_1      |[0m     swank
+[32mresource_1      |[0m ; Loading "swank"
+[31mdispatcher_1    |[0m All dependencies up to date
+[35mfile-service_1  |[0m DEPRECATION WARNING: The configuration option `config.serve_static_assets` has been renamed to `config.serve_static_files` to clarify its role (it merely enables serving everything in the `public` folder and is unrelated to the asset pipeline). The `serve_static_assets` alias will be removed in Rails 5.0. Please migrate your configuration files accordingly. (called from block in <top (required)> at /home/app/webapp/config/environments/production.rb:23)
+[32mresource_1      |[0m .
+[34midentifier_1    |[0m All dependencies up to date
+[32mresource_1      |[0m ;; Swank started at port: 4005.
+[32mresource_1      |[0m  >> docker finished starting swank 
+[31mdispatcher_1    |[0m Compiled lib/dispatcher.ex
+[31mdispatcher_1    |[0m Generated dispatcher app
+[34midentifier_1    |[0m Consolidated Plug.Exception
+[34midentifier_1    |[0m Consolidated Collectable
+[34midentifier_1    |[0m Consolidated List.Chars
+[35mfile-service_1  |[0m DEPRECATION WARNING: The configuration option `config.serve_static_assets` has been renamed to `config.serve_static_files` to clarify its role (it merely enables serving everything in the `public` folder and is unrelated to the asset pipeline). The `serve_static_assets` alias will be removed in Rails 5.0. Please migrate your configuration files accordingly. (called from block in <top (required)> at /home/app/webapp/config/environments/production.rb:23)
+[34midentifier_1    |[0m Consolidated Inspect
+[31mdispatcher_1    |[0m Consolidated Plug.Exception
+[31mdispatcher_1    |[0m Consolidated Collectable
+[34midentifier_1    |[0m Consolidated String.Chars
+[31mdispatcher_1    |[0m Consolidated List.Chars
+[34midentifier_1    |[0m Consolidated Enumerable
+[34midentifier_1    |[0m Consolidated protocols written to _build/prod/consolidated
+[31mdispatcher_1    |[0m Consolidated Inspect
+[31mdispatcher_1    |[0m Consolidated String.Chars
+[31mdispatcher_1    |[0m Consolidated Enumerable
+[31mdispatcher_1    |[0m Consolidated protocols written to _build/prod/consolidated
+[35mfile-service_1  |[0m 
+[35mfile-service_1  |[0m database: /home/app/webapp/db/production.sqlite3
+[35mfile-service_1  |[0m 
+[35mfile-service_1  |[0m  Status   Migration ID    Migration Name
+[35mfile-service_1  |[0m --------------------------------------------------
+[35mfile-service_1  |[0m 
+[35mfile-service_1  |[0m *** Running /etc/rc.local...
+[35mfile-service_1  |[0m *** Booting runit daemon...
+[35mfile-service_1  |[0m *** Runit started as PID 27
+[35mfile-service_1  |[0m Mar 14 11:13:35 06f0eb5d4c54 syslog-ng[35]: syslog-ng starting up; version='3.5.3'
+[35mfile-service_1  |[0m ok: run: /etc/service/nginx-log-forwarder: (pid 46) 0s
+[31mdispatcher_1    |[0m Starting Plug with Cowboy on port 80
+[34midentifier_1    |[0m Running Proxy with Cowboy on http://localhost:80
+[35mfile-service_1  |[0m [ 2017-03-14 11:13:36.4814 47/7fd24dd8e780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'nobody', 'default_group' => 'nogroup', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby', 'default_user' => 'nobody', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini', 'passenger_version' => '4.0.58', 'pool_idle_time' => '300', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'true', 'web_server_passenger_version' => '4.0.58', 'web_server_pid' => '37', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '33', 'web_server_worker_uid' => '33' }
+[35mfile-service_1  |[0m [ 2017-03-14 11:13:36.4956 50/7f08c3248780 agents/HelperAgent/Main.cpp:650 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.37/generation-0/request
+[35mfile-service_1  |[0m [ 2017-03-14 11:13:36.5129 55/7f8289f917c0 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.37/generation-0/logging
+[35mfile-service_1  |[0m [ 2017-03-14 11:13:36.5132 47/7fd24dd8e780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+[34midentifier_1    |[0m 
+[34midentifier_1    |[0m 11:13:47.181 [info]  GET /
+[34midentifier_1    |[0m keeping user_id
+[34midentifier_1    |[0m "http://mu.semte.ch/sessions/da170b00-07f9-11e7-a9d5-000000000000"
+[31mdispatcher_1    |[0m 
+[31mdispatcher_1    |[0m 11:13:47.543 [info]  GET /
+[34midentifier_1    |[0m 
+[34midentifier_1    |[0m 11:13:47.553 [info]  Sent 404 in 372ms
+[31mdispatcher_1    |[0m 
+[31mdispatcher_1    |[0m 11:13:47.550 [info]  Sent 404 in 6ms
+Gracefully stopping... (press Ctrl+C again to force)

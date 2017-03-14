@@ -18,48 +18,48 @@ defmodule Dispatcher do
   # docker-compose stop; docker-compose rm; docker-compose up
   # after altering this file.
   #
-  match "/api/products/*path" do
+  match "/products/*path" do
     Proxy.forward conn, path, "http://resource/products/"
   end
 
-  match "/api/product-names/*path" do
+  match "/product-names/*path" do
     Proxy.forward conn, path, "http://resource/product-names/"
   end
 
-  match "/api/product-descriptions/*path" do
+  match "/product-descriptions/*path" do
     Proxy.forward conn, path, "http://resource/product-descriptions/"
   end
 
-  match "/api/product-sizes/*path" do
+  match "/product-sizes/*path" do
     Proxy.forward conn, path, "http://resource/product-sizes/"
   end
 
-  match "/api/product-prices/*path" do
+  match "/product-prices/*path" do
     Proxy.forward conn, path, "http://resource/product-prices/"
   end
 
-  match "/api/product-images/*path" do
+  match "/product-images/*path" do
     Proxy.forward conn, path, "http://resource/product-images/"
   end
 
-  match "/api/files/*path" do
+  match "/files/*path" do
     Proxy.forward conn, path, "http://file-service/files/"
   end
 
-  match "/api/product-audiences/*path" do
+  match "/product-audiences/*path" do
     Proxy.forward conn, path, "http://resource/product-audiences/"
   end
 
-  match "/api/shopping-carts/*path" do
+  match "/shopping-carts/*path" do
     Proxy.forward conn, path, "http://resource/shopping-carts/"
   end
 
-  match "/api/shopping-cart-items/*path" do
+  match "/shopping-cart-items/*path" do
     Proxy.forward conn, path, "http://resource/shopping-cart-items/"
   end
 
-  match "/app/*path" do
-      Proxy.forward conn, path, "http://ember/app/"
+  match "/*path" do
+      Proxy.forward conn, path, "http://ember/"
   end
 
   match _ do
