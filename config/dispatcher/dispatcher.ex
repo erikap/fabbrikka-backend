@@ -30,12 +30,12 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/product-descriptions/"
   end
 
-  match "/product-sizes/*path" do
-    Proxy.forward conn, path, "http://resource/product-sizes/"
+  match "/product-variants/*path" do
+    Proxy.forward conn, path, "http://resource/product-variants/"
   end
 
-  match "/product-prices/*path" do
-    Proxy.forward conn, path, "http://resource/product-prices/"
+  match "/product-variant-sizes/*path" do
+    Proxy.forward conn, path, "http://resource/product-variant-sizes/"
   end
 
   match "/product-images/*path" do

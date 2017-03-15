@@ -25,7 +25,6 @@
 ;;   :resource-base (s-url "<string-to-which-uuid-will-be-appended-for-uri-of-new-items-in-triplestore>")
 ;;   :on-path "<url-path-on-which-this-resource-is-available>")
 
-
 (define-resource shopping-cart ()
   :class (s-prefix "ext:ShoppingCart")
   :properties `((:owner-session :string ,(s-prefix "ext:owner-session")))
@@ -37,22 +36,41 @@
 (define-resource shopping-cart-item ()
   :class (s-prefix "ext:ShoppingCartItem")
   :properties `((:quantity :number ,(s-prefix "ext:quantity")))
-  :has-one `((product :via ,(s-prefix "ext:hasProduct")
-                      :as "product")
-             (shopping-cart :via ,(s-prefix "ext:hasShoppingCartItem")
+  :has-one `((shopping-cart :via ,(s-prefix "ext:hasShoppingCartItem")
                        :inverse t
                        :as "shopping-cart")
-             (product-size :via ,(s-prefix "ext:hasSize")
-                       :as "size"))
+             (product-variant :via ,(s-prefix "ext:hasVariant")
+                       :as "product-variant"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/shopping-cart-items/")
   :on-path "shopping-cart-items")
+
+(define-resource product-variant()
+;;NOTE: this could be made more generic, yet not necessary for this use case. (hard defined variant parameters it is...)
+    :class (s-prefix "ext:ProductVariant")
+    :properties `((:price :number ,(s-prefix "ext:price"))) ;;just assume euros
+    :has-one `((product-variant-size :via ,(s-prefix "ext:hasSize")
+                    :as "size")
+               (product :via ,(s-prefix "ext:hasVariant")
+                    :inverse t
+                    :as "product"))
+    :resource-base (s-url "http://business-domain.fabbrikka.com/product-variants/")
+    :on-path "product-variants")
+
+(define-resource product-variant-size ()
+  :class (s-prefix "ext:ProductVariantSize")
+  :properties `((:name :string ,(s-prefix "ext:name")))
+  :has-many `((product-variant :via ,(s-prefix "ext:hasSize")
+                    :inverse t
+                    :as "product-variants"))
+  :resource-base (s-url "http://business-domain.fabbrikka.com/product-variant-sizes/")
+  :on-path "product-variant-sizes")
 
 (define-resource product-name ()
   :class (s-prefix "ext:ProductName")
   :properties `((:name :string ,(s-prefix "ext:name"))
-  	            (:locale :string ,(s-prefix "ext:locale")))
+                (:locale :string ,(s-prefix "ext:locale")))
   :has-one `((product :via ,(s-prefix "ext:hasProductName")
-  	                :inverse t
+                    :inverse t
                     :as "product"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-names/")
   :on-path "product-names")
@@ -60,31 +78,12 @@
 (define-resource product-description ()
   :class (s-prefix "ext:ProductDescription")
   :properties `((:description :string ,(s-prefix "ext:description"))
-  	            (:locale :string ,(s-prefix "ext:locale")))
+                (:locale :string ,(s-prefix "ext:locale")))
   :has-one `((product :via ,(s-prefix "ext:hasProductDescription")
-  	                :inverse t
+                    :inverse t
                     :as "product"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-descriptions/")
   :on-path "product-descriptions")
-
-(define-resource product-size ()
-  :class (s-prefix "ext:ProductSize")
-  :properties `((:size-name :string ,(s-prefix "ext:sizeName")))
-  :has-many `((product :via ,(s-prefix "ext:hasProductSize")
-  	                :inverse t
-                    :as "products"))
-  :resource-base (s-url "http://business-domain.fabbrikka.com/product-sizes/")
-  :on-path "product-sizes")
-
-(define-resource product-price ()
-  :class (s-prefix "ext:ProductPrice")
-  :properties `((:amount :number ,(s-prefix "ext:amount"))
-  				(:currency :string, (s-prefix "ext:currency")))
-  :has-one `((product :via ,(s-prefix "ext:hasProductPrice")
-  	                :inverse t
-                    :as "product"))
-  :resource-base (s-url "http://business-domain.fabbrikka.com/product-prices/")
-  :on-path "product-prices")
 
 (define-resource product-image ()
   :class (s-prefix "ext:ProductImage")
@@ -115,13 +114,12 @@
                      :as "product-names")
               (product-description :via ,(s-prefix "ext:hasProductDescription")
                      :as "product-descriptions")
-              (product-size :via ,(s-prefix "ext:hasProductSize")
-                     :as "product-sizes")
               (product-image :via ,(s-prefix "ext:hasProductImage")
                        :as "product-images")
               (product-audience :via ,(s-prefix "ext:hasProductAudience")
-                    :as "product-audiences"))
-  :has-one `((product-price :via ,(s-prefix "ext:hasProductPrice")
-                    :as "product-price"))
+                    :as "product-audiences")
+              (product-variant :via ,(s-prefix "ext:hasVariant")
+                    :as "product-variants"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/products/")
   :on-path "products")
+
