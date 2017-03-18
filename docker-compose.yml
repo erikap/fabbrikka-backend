@@ -1,7 +1,7 @@
 version: "2"
 services:
   fabbrikka-locale-guesser:
-      image: cecemel/fabbrikka-locale-guesser:0.0.2
+      image: cecemel/fabbrikka-locale-guesser:0.0.3
   identifier:
     image: semtech/mu-identifier:1.0.0
     links:

@@ -59,8 +59,6 @@ defmodule Dispatcher do
   end
 
   match "/fabbrikka-locale-guesser/*path" do
-    IO.puts "helllo"
-    IO.puts path
     Proxy.forward conn, path, "http://fabbrikka-locale-guesser/"
   end
 
