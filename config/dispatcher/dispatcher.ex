@@ -62,6 +62,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://fabbrikka-locale-guesser/"
   end
 
+  match "/accounts/*path" do
+    Proxy.forward conn, path, "http://registration/accounts/"
+  end
+
+  match "/sessions/*path" do
+    Proxy.forward conn, path, "http://login/sessions/"
+  end
+
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
