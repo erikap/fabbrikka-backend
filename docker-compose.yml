@@ -58,4 +58,4 @@ services:
     links:
       - db:database
     volumes:
-      - /Users/felix/git/authorization-service/config/resources /config
+      - /Users/felix/git/authorization-service/config/resources:/config
