@@ -32,6 +32,7 @@ services:
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
+      DBA_PASSWORD: dba
     ports:
       - "8890:8890"
     volumes:
