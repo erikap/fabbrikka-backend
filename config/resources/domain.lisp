@@ -103,6 +103,10 @@
   :has-many `((product :via ,(s-prefix "ext:hasProductAudience")
                     :inverse t
                     :as "products"))
+  :authorization (list :show (s-prefix "auth:show")
+                    :update (s-prefix "auth:update")
+                    :create (s-prefix "auth:create")
+                    :delete (s-prefix "auth:delete"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-audiences/")
   :on-path "product-audiences")
 
@@ -122,4 +126,3 @@
                     :as "product-variants"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/products/")
   :on-path "products")
-

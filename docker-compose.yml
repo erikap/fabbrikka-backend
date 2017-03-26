@@ -52,3 +52,9 @@ services:
       - "6969:80"
     environment:
       - SECRET_KEY_BASE=test
+  authorization:
+    image: semtech/mu-authorization-service
+    links:
+      - db:database
+    volumes:
+      - /Users/felix/git/authorization-service/config/resources /config

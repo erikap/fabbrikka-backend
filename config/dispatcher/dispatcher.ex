@@ -70,6 +70,26 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://login/sessions/"
   end
 
+  match "/authenticatables/*path" do
+    Proxy.forward conn, path, "http://authorization/authenticatables/"
+  end
+
+  match "/users/*path" do
+    Proxy.forward conn, path, "http://authorization/users/"
+  end
+
+  match "/user-groups/*path" do
+    Proxy.forward conn, path, "http://authorization/user-groups/"
+  end
+
+   match "/access-tokens/*path" do
+     Proxy.forward conn, path, "http://authorization/access-tokens/"
+   end
+
+    match "/grants/*path" do
+      Proxy.forward conn, path, "http://authorization/grants/"
+    end
+
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
