@@ -57,5 +57,3 @@ services:
     image: semtech/mu-authorization-service
     links:
       - db:database
-    volumes:
-      - ./config/authorization/resources:/config
