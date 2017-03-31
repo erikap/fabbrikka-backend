@@ -1,5 +1,11 @@
 version: "2"
 services:
+  fabbrikka-cart-service:
+      image: cecemel/fabbrikka-cart-service:0.0.5
+      links:
+        - db:database
+      environment:
+        - ENVIRONMENT=PRODUCTION
   registration:
     image: semtech/mu-registration-service:2.4.0
     links:
@@ -15,7 +21,7 @@ services:
   fabbrikka-locale-guesser:
     image: cecemel/fabbrikka-locale-guesser:0.0.6
   identifier:
-    image: semtech/mu-identifier:1.0.0
+    image: semtech/mu-identifier:1.2.0
     links:
       - dispatcher:dispatcher
     ports:
@@ -25,6 +31,7 @@ services:
     links:
       - resource:resource
       - fabbrikka-locale-guesser:fabbrikka-locale-guesser
+      - fabbrikka-cart-service:fabbrikka-cart-service
     volumes:
       - ./config/dispatcher:/config
   db:
@@ -37,7 +44,7 @@ services:
     volumes:
       - ./data/db:/data
   resource:
-    image: semtech/mu-cl-resources:1.12.1
+    image: semtech/mu-cl-resources:latest
     links:
       - db:database
     volumes:

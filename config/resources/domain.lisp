@@ -27,7 +27,7 @@
 
 (define-resource shopping-cart ()
   :class (s-prefix "ext:ShoppingCart")
-  :properties `((:owner-session :string ,(s-prefix "ext:owner-session")))
+  :properties `((:owner-session :string ,(s-prefix "ext:ownerSession")))
   :has-many `((shopping-cart-item :via ,(s-prefix "ext:hasShoppingCartItem")
                     :as "shopping-cart-items"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/shopping-carts/")
@@ -122,4 +122,3 @@
                     :as "product-variants"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/products/")
   :on-path "products")
-

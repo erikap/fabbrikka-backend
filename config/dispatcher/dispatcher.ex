@@ -62,6 +62,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://fabbrikka-locale-guesser/"
   end
 
+  match "/fabbrikka-cart-service/*path" do
+    Proxy.forward conn, path, "http://fabbrikka-cart-service/"
+  end
+
   match "/accounts/*path" do
     Proxy.forward conn, path, "http://registration/accounts/"
   end
