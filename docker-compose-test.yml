@@ -1,0 +1,65 @@
+version: "2"
+services:
+  ember:
+    image: cecemel/ember-fastboot-proxy-service:0.1.0
+    links:
+      - identifier:backend
+    ports:
+      - "6970:80"
+    volumes:
+      - /home/cecemel/git/fabbrikka-frontend/dist:/dist
+  fabbrikka-cart-service:
+      image: cecemel/fabbrikka-cart-service:0.0.5
+      links:
+        - db:database
+      environment:
+        - ENVIRONMENT=PRODUCTION
+  registration:
+    image: semtech/mu-registration-service:2.4.0
+    links:
+      - db:database
+    environment:
+      - MU_APPLICATION_SALT=MN2FQTUhCW8Rd5tboZr7
+  login:
+    image: semtech/mu-login-service:2.5.0
+    links:
+      - db:database
+    environment:
+      - MU_APPLICATION_SALT=MN2FQTUhCW8Rd5tboZr7
+  fabbrikka-locale-guesser:
+    image: cecemel/fabbrikka-locale-guesser:0.0.6
+  identifier:
+    image: semtech/mu-identifier:1.2.0
+    links:
+      - dispatcher:dispatcher
+  dispatcher:
+    image: semtech/mu-dispatcher:1.0.1
+    links:
+      - resource:resource
+      - fabbrikka-locale-guesser:fabbrikka-locale-guesser
+      - fabbrikka-cart-service:fabbrikka-cart-service
+    volumes:
+      - ./config/dispatcher:/config
+  db:
+    image: tenforce/virtuoso:1.0.0-virtuoso7.2.4
+    environment:
+      SPARQL_UPDATE: "true"
+      DEFAULT_GRAPH: "http://mu.semte.ch/application"
+    ports:
+      - "8890:8890"
+    volumes:
+      - ./data/db:/data
+  resource:
+    image: semtech/mu-cl-resources:latest
+    links:
+      - db:database
+    volumes:
+      - ./config/resources:/config
+  file-service:
+    image: semtech/mu-file-service
+    links:
+      - db:database
+    volumes:
+      - ./data/files:/data
+    environment:
+      - SECRET_KEY_BASE=test
