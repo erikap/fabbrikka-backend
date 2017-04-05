@@ -32,3 +32,8 @@
 ;; by them and that it shouldn't be used for permanent URIs.
 
 (add-prefix "ext" "http://mu.semte.ch/vocabularies/ext/")
+
+;; Required namespaces for authorization
+(add-prefix "auth" "http://mu.semte.ch/vocabularies/authorization/")
+(add-prefix "session" "http://mu.semte.ch/vocabularies/session/")
+(add-prefix "accessToken" "http://mu.semte.ch/services/authorization-service/access-tokens/")

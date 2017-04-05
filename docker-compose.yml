@@ -53,7 +53,10 @@ services:
       - "6969:80"
     environment:
       - SECRET_KEY_BASE=test
-  authorization:
-    image: semtech/mu-authorization-service
+  migrations:
+    image: semtech/mu-migrations-service:0.2.0
     links:
       - db:database
+    volumes:
+      - ./migrations:/data/migrations
+

@@ -1,0 +1,66 @@
+PREFIX auth: <http://mu.semte.ch/vocabularies/authorization/>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX muAccount: <http://mu.semte.ch/vocabularies/account/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/application> {
+        # Super admin user account (john_doe | secret )
+        <http://mu.semte.ch/application/account/58e548bed0a2c0000e000001> a foaf:OnlineAccount ;
+                                                                          foaf:accountName "super_admin" ;
+                                                                          mu:uuid "58e548bed0a2c0000e000001" ;
+                                                                          muAccount:password "$2a$10$a4xEWsGYmE8uNHg98SDFxuUjHhb5r7YilWNAMXEbkX8T5rn3DiJZq" ;
+                                                                          muAccount:salt "4ca824e22f88dd7256c5922ad4ef9bbe" ;
+                                                                          muAccount:status <http://mu.semte.ch/vocabularies/account/status/active> .
+        # Super admin user 
+        <http://mu.semte.ch/application/users/58e548bed0a2c0000e000000>	a foaf:Person ;
+                                                                        mu:uuid "58e548bed0a2c0000e000000" ;                                                                        
+                                                                        foaf:name "Super Admin" ;
+                                                                        foaf:account <http://mu.semte.ch/application/account/58e548bed0a2c0000e000001> .
+
+        # Add user to admin group
+        <http://mu.semte.ch/application/users/58e548bed0a2c0000e000000> auth:belongsToActorGroup <http://mu.semte.ch/services/authorization-service/user-groups/Admin> .
+
+        # Add grant with CRUD token to the admin group
+        <http://mu.semte.ch/services/authorization-service/user-groups/Admin> auth:hasRight <http://mu.semte.ch/services/authorization-service/grants/1> .
+        <http://mu.semte.ch/services/authorization-service/grants/1>  a auth:Grant ;
+                                                                      auth:hasToken <http://mu.semte.ch/services/authorization-service/access-tokens/CRUD> .
+        <http://mu.semte.ch/services/authorization-service/access-tokens/CRUD> a auth:AccessToken .
+
+        # Add resources which the grant operates on
+        <http://mu.semte.ch/services/authorization-service/grants/1> auth:operatesOn ext:ShoppingCart,
+                                                                                     ext:ProductVariant,
+                                                                                     ext:ProductVariantSize,
+                                                                                     ext:ProductName,
+                                                                                     ext:ProductDescription,
+                                                                                     ext:ProductImage,
+                                                                                     ext:ProductAudience,
+                                                                                     ext:Product .
+
+        # A normal visitor user account (john_doe | secret)
+        <http://mu.semte.ch/application/account/58e5574ad9432d0014000001> a foaf:OnlineAccount ;
+                                                                          foaf:accountName "john_doe" ;
+                                                                          mu:uuid "58e5574ad9432d0014000001" ;
+                                                                          muAccount:password "$2a$10$SUresJIUScjEJ7cecAatEOPxYI/F/VtW515WspWoXWcBLBtUROHwu" ;
+                                                                          muAccount:salt "c6b6071fb8ea2dd9dab1dcebb14392ff" ;
+                                                                          muAccount:status <http://mu.semte.ch/vocabularies/account/status/active> .
+
+        # A normal user
+        <http://mu.semte.ch/application/users/58e5574ad9432d0014000000>	a foaf:Person ;
+                                                                        mu:uuid "58e5574ad9432d0014000000" ;
+                                                                        foaf:name "John Doe" ;
+                                                                        foaf:account <http://mu.semte.ch/application/account/58e5574ad9432d0014000001> .
+
+        # An example shopping cart granted to the user                                                             
+        <http://business-domain.fabbrikka.com/shopping-carts/example-uuid-44805983405893245> a ext:ShoppingCart ;
+                                                               mu:uuid "example-uuid-44805983405893245" .
+        <http://mu.semte.ch/application/users/58e5574ad9432d0014000000>	auth:hasRight <http://mu.semte.ch/services/authorization-service/grants/435098324059858> .
+        <http://mu.semte.ch/services/authorization-service/grants/435098324059858> a auth:Grant ;
+                                                                                   auth:hasToken <http://mu.semte.ch/services/authorization-service/access-tokens/CRUD> ;
+                                                                                   auth:operatesOn <http://business-domain.fabbrikka.com/shopping-carts/example-uuid-44805983405893245> .
+
+        <http://business-domain.fabbrikka.com/shopping-carts/example-uuid-490532845098348> a ext:ShoppingCart ;
+                                                               mu:uuid "example-uuid-490532845098348" .
+  }
+}

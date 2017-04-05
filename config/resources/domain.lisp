@@ -30,6 +30,10 @@
   :properties `((:owner-session :string ,(s-prefix "ext:owner-session")))
   :has-many `((shopping-cart-item :via ,(s-prefix "ext:hasShoppingCartItem")
                     :as "shopping-cart-items"))
+  :authorization (list :show (s-prefix "accessToken:CRUD")
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/shopping-carts/")
   :on-path "shopping-carts")
 
@@ -53,6 +57,10 @@
                (product :via ,(s-prefix "ext:hasVariant")
                     :inverse t
                     :as "product"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
     :resource-base (s-url "http://business-domain.fabbrikka.com/product-variants/")
     :on-path "product-variants")
 
@@ -62,6 +70,10 @@
   :has-many `((product-variant :via ,(s-prefix "ext:hasSize")
                     :inverse t
                     :as "product-variants"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-variant-sizes/")
   :on-path "product-variant-sizes")
 
@@ -72,6 +84,10 @@
   :has-one `((product :via ,(s-prefix "ext:hasProductName")
                     :inverse t
                     :as "product"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-names/")
   :on-path "product-names")
 
@@ -82,6 +98,10 @@
   :has-one `((product :via ,(s-prefix "ext:hasProductDescription")
                     :inverse t
                     :as "product"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-descriptions/")
   :on-path "product-descriptions")
 
@@ -92,6 +112,10 @@
   :has-one `((product :via ,(s-prefix "ext:hasProductImage")
                       :inverse t
                       :as "product"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-images/")
   :on-path "product-images")
 
@@ -103,10 +127,14 @@
   :has-many `((product :via ,(s-prefix "ext:hasProductAudience")
                     :inverse t
                     :as "products"))
-  :authorization (list :show (s-prefix "auth:show")
-                    :update (s-prefix "auth:update")
-                    :create (s-prefix "auth:create")
-                    :delete (s-prefix "auth:delete"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/product-audiences/")
   :on-path "product-audiences")
 
@@ -124,5 +152,9 @@
                     :as "product-audiences")
               (product-variant :via ,(s-prefix "ext:hasVariant")
                     :as "product-variants"))
+  :authorization (list :show nil
+                       :update (s-prefix "accessToken:CRUD")
+                       :create (s-prefix "accessToken:CRUD")
+                       :delete (s-prefix "accessToken:CRUD"))
   :resource-base (s-url "http://business-domain.fabbrikka.com/products/")
   :on-path "products")
